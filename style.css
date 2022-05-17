@@ -1,12 +1,23 @@
+  
   body {
-    margin: 0;
+    margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff4d6;
+  }
+
+  /* header */
+  .header {
+    background-image: url(images/header.png);
+    height: 35vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   /* Navigation bar CSS */
   .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: #181213;
     margin: 0;
   }
   
@@ -21,13 +32,8 @@
   }
   
   .topnav a:hover {
-    background-color: #ddd;
+    background-color: #ffffe1;
     color: black;
-  }
-  
-  .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
   }
   
   .topnav .icon {
@@ -40,10 +46,9 @@
       float: right;
       display: block;
     }
-  }
   
-  @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}
+    .topnav.responsive.sticky {position: fixed;}
     .topnav.responsive .icon {
       position: absolute;
       right: 0;
@@ -56,125 +61,143 @@
     }
   }
 
-  /* Banner CSS */
-  .banner {
-    margin: 0;
-    overflow: hidden;
-    display: block;
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+  /* content */
+  * {
+    box-sizing: border-box;
+  }
+
+  .main-content {
+    padding: 1vh 15vw;
     text-align: center;
-    background-color: #333;
-  }
-
-  /* Content CSS */
-  .content {
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 2%;
-    padding: 2%;
-    text-align: center;
-    background-image: url('images/banner.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
-    color: white;
-    text-shadow:
-    -1px -1px 1px #000,
-    1px -1px 2px #000,
-    -1px 1px 1px #000,
-    1px 1px 1px #000; 
-  }
-
-  #informatik {
-    background-image:  url('images/informatik.jpg');
-  }
-
-  #matematik {
-    background-image:  url('images/matematik.jpg');
-  }
-
-  #engelsk {
-    background-image:  url('images/engelsk.jpg');
-  }
-
-  #so {
-    background-image:  url('images/so.jpg');
-  }
-
-  #dotdotdot {
-    background-image:  url('images/dotdotdot.jpg');
-  }
-
-  #dansk {
-    background-image:  url('images/dansk.jpg');
-  }
-
-  .content .element {
-    max-width: 49%;
-    margin: 0 auto;
-    text-align:center; 
-  }
-
-  .content .element p {
-    text-align: left;
-  }
-  
-  .content .element h2 {
-    text-align: left;
-  }
-
- .content .left {
-    float: left;
-  }
-
-  .content .right {
-    float: right;
-  }
-
-  @media screen and (max-width: 600px) {
-    .content {
-      margin-left: 2%;
-      margin-right: 2%;
-    }
-
-    .content .element {
-      float: none;
-      max-width: 80%;
-    } 
   }
 
   #profile-picture {
-    max-width: 50%;
+    padding-top: 20%;
+    min-width: 200px;
+    width: 30%;
+    height: auto;
   }
 
-  /* Accordion CSS */
-  .accordion {
-    background-color: transparent;
-    color: rgb(253, 253, 253);
-    text-shadow:
-    -1px -1px 1px #000,
-    1px -1px 1px #000,
-    -1px 1px 1px #000,
-    1px 1px 1px #000; 
-    cursor: pointer;
-    padding: 18px;
+  .main-content h1 {
+    font-size: 50px;
+    padding-top: 100px;
+  }
+  
+  /* Float four columns side by side */
+  .column{
+    float: left;
+    padding: 10px;
+  }
+
+  .p25 {
+    width: 25%;
+  }
+
+  .p100 {
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-  }
-  
-  .accordion:hover {
-  border: solid 1px rgb(119, 119, 119);
-  }
-  
-  .panel {
-    padding: 0 18px;
-    background-color: transparent;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
   }
 
+  .p33 {
+    width: 33%;
+  }
+
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {
+    margin: 0px;
+  }
+
+  .row img {
+    width: 60%;
+  }
+
+  .row img:hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+  
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive small screen */
+  @media screen and (max-width: 600px) {
+
+    .main-content {
+      padding: 1vh 1vw;
+    }
+
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .about {
+    margin: 10px;
+    font-size: 25px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1vh 1vw;
+    padding-bottom: 100px;
+    color: #706195;
+  }
+
+  footer h1 {
+    padding: 50px 0px;
+  }
+
+  footer a {
+    color: #aa9dad;
+    text-decoration: none;
+  }
+  footer a:hover {
+    color: #ff9ebc;
+  }
+
+  footer .space {
+    height: 200px;
+  }

@@ -1,26 +1,34 @@
-
 // Navigation bar Javascript
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
+// find the topnav object
+let topnav = document.getElementById("topnav");
+
+// add responsiveness to the topnav
+let dropDownButton = document.createElement("a");
+href="javascript:void(0);"
+dropDownButton.className += "icon";
+dropDownButton.onclick = collapseTopNav;
+dropDownButton.innerHTML = "<i class='fa fa-bars'></i>";
+topnav.appendChild(dropDownButton);
+
+function collapseTopNav() {
+    if (!topnav.classList.contains("responsive")) {
+      topnav.classList.add("responsive");
     } else {
-      x.className = "topnav";
+      topnav.classList.remove("responsive");
     }
   }
 
-// Accordion Javascript
-var acc = document.getElementsByClassName("accordion");
-var i;
+  // When the user scrolls the page, execute myFunction
+window.onscroll = followTopNav;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
+// Get the offset position of the navbar
+var sticky = topnav.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function followTopNav() {
+  if (window.pageYOffset >= sticky) {
+    topnav.classList.add("sticky")
+  } else {
+    topnav.classList.remove("sticky");
+  }
+} 
